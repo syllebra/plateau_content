@@ -1,12 +1,10 @@
-import json
-import re
-import os
 import argparse
-import uuid
 import hashlib
-
+import json
+import os
+import re
+import uuid
 from concurrent.futures import ThreadPoolExecutor
-from urllib.parse import urlparse
 from pathlib import Path
 from typing import Dict, List
 
@@ -147,9 +145,9 @@ def main():
     if len(toreplace) > 0:
         with open(args.input, "rt", encoding="utf-8") as f:
             fd = f.read()
-       
+
         for url, fixed_url in toreplace.items():
-            print("Replacing ", url, " by ",fixed_url)
+            print("Replacing ", url, " by ", fixed_url)
             fd = fd.replace(url, fixed_url)
 
         with open(args.input, "wt", encoding="utf-8") as f:
